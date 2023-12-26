@@ -6,4 +6,5 @@
 - `poetry install`
 
 ## Run API service
+- `conda activate fast_api_3.9`
 - `uvicorn main:app --reload`
