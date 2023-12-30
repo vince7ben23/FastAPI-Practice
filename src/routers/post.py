@@ -2,7 +2,13 @@ from typing import List, Union
 
 from fastapi import APIRouter, HTTPException
 
-from models.post import Comment, CommentIn, UserPost, UserPostIn, UserPostWithComments
+from src.models.post import (
+    Comment,
+    CommentIn,
+    UserPost,
+    UserPostIn,
+    UserPostWithComments,
+)
 
 post_router = APIRouter()
 
@@ -10,7 +16,7 @@ post_router = APIRouter()
 post_db = {}
 
 
-@post_router.post("/post")
+@post_router.post("/post", status_code=201)
 def create_post(post: UserPostIn) -> UserPost:
     data = post.model_dump()
     id = len(post_db)
@@ -32,7 +38,7 @@ def get_posts() -> List[UserPost]:
 comment_db = {}
 
 
-@post_router.post("/comment")
+@post_router.post("/comment", status_code=201)
 def create_comment(comment: CommentIn) -> Comment:
     post = get_post(comment.post_id)
     if not post:

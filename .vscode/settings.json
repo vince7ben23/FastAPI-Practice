@@ -4,9 +4,9 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.fixAll": true,
-            "source.organizeImports": true
-      }
+          "source.fixAll": "explicit",
+          "source.organizeImports": "explicit"
+        }
     },
     "ruff.organizeImports": false,
     "isort.args":["--profile", "black"]
